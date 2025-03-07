@@ -1,0 +1,54 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  height: 100vh;
+  background-color: rgb(255, 238, 144);
+}
+
+.caixa {
+  width: 100%;
+  height: 100vh;
+  display: grid;
+  grid-template:
+    "quad1 quad1 quad2" 50%
+    "quad3 quad4 quad2" 50% / 1fr 1fr 1fr;
+  gap: 5px;
+  padding: 10px;
+}
+
+.caixa .cartao:nth-child(1) {
+  grid-area: quad1;
+  background-color: white;
+}
+
+.caixa .cartao:nth-child(2) {
+  grid-area: quad2;
+  background-color: lightblue;
+}
+
+.caixa .cartao:nth-child(3) {
+  grid-area: quad3;
+  background-color: lightpink;
+}
+
+.caixa .cartao:nth-child(4) {
+  grid-area: quad4;
+  background-color: lightgoldenrodyellow;
+}
+
+@media (max-width: 520px) {
+  .caixa {
+    grid-template: 1fr 1fr 1fr 1fr /1fr;
+  }
+  .caixa .cartao:nth-child(1),
+  .caixa .cartao:nth-child(2),
+  .caixa .cartao:nth-child(3),
+  .caixa .cartao:nth-child(4) {
+    grid-column: auto;
+    grid-row: auto;
+  }
+}

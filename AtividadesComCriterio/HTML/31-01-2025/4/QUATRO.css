@@ -1,0 +1,123 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  height: 100vh;
+  background-color: rgb(255, 92, 119);
+}
+
+.muitos {
+  width: 100%;
+  height: 100vh;
+  display: grid;
+  grid-template:
+    "quad1 quad2 quad3 quad4 quad5 quad6"
+    "quad7 quad8 quad9 quad10 quad11 quad12"
+    "quad13 quad14 quad15 quad16 quad17 quad18";
+  gap: 10px;
+  padding: 10px;
+}
+
+.muitos .quad:nth-child(1) {
+  grid-area: quad1;
+  background-color: rgb(251, 209, 216);
+}
+
+.muitos .quad:nth-child(2) {
+  grid-area: quad2;
+  background-color: rgb(247, 166, 180);
+}
+.muitos .quad:nth-child(3) {
+  grid-area: quad3;
+  background-color: rgb(243, 153, 168);
+}
+.muitos .quad:nth-child(4) {
+  grid-area: quad4;
+  background-color: rgb(254, 115, 138);
+}
+.muitos .quad:nth-child(5) {
+  grid-area: quad5;
+  background-color: rgb(255, 89, 117);
+}
+.muitos .quad:nth-child(6) {
+  grid-area: quad6;
+  background-color: rgb(244, 65, 95);
+}
+.muitos .quad:nth-child(7) {
+  grid-area: quad7;
+  background-color: rgb(255, 47, 81);
+}
+.muitos .quad:nth-child(8) {
+  grid-area: quad8;
+  background-color: rgb(246, 27, 63);
+}
+.muitos .quad:nth-child(9) {
+  grid-area: quad9;
+  background-color: rgb(250, 19, 57);
+}
+.muitos .quad:nth-child(10) {
+  grid-area: quad10;
+  background-color: rgb(248, 4, 45);
+}
+.muitos .quad:nth-child(11) {
+  grid-area: quad11;
+  background-color: rgb(191, 6, 37);
+}
+.muitos .quad:nth-child(12) {
+  grid-area: quad12;
+  background-color: rgb(152, 2, 27);
+}
+.muitos .quad:nth-child(13) {
+  grid-area: quad13;
+  background-color: rgb(110, 2, 20);
+}
+.muitos .quad:nth-child(14) {
+  grid-area: quad14;
+  background-color: rgb(71, 1, 13);
+}
+.muitos .quad:nth-child(15) {
+  grid-area: quad15;
+  background-color: rgb(62, 2, 12);
+}
+.muitos .quad:nth-child(16) {
+  grid-area: quad16;
+  background-color: rgb(42, 0, 7);
+}
+.muitos .quad:nth-child(17) {
+  grid-area: quad17;
+  background-color: rgb(38, 1, 6);
+}
+.muitos .quad:nth-child(18) {
+  grid-area: quad18;
+  background-color: rgb(16, 0, 3);
+}
+
+@media (max-width: 520px) {
+  .muitos {
+    grid-template: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr/1fr;
+  }
+  .muitos .quad:nth-child(1),
+  .muitos .quad:nth-child(2),
+  .muitos .quad:nth-child(3),
+  .muitos .quad:nth-child(4),
+  .muitos .quad:nth-child(5),
+  .muitos .quad:nth-child(6),
+  .muitos .quad:nth-child(7),
+  .muitos .quad:nth-child(8),
+  .muitos .quad:nth-child(9),
+  .muitos .quad:nth-child(10),
+  .muitos .quad:nth-child(11),
+  .muitos .quad:nth-child(12),
+  .muitos .quad:nth-child(13),
+  .muitos .quad:nth-child(14),
+  .muitos .quad:nth-child(15),
+  .muitos .quad:nth-child(16),
+  .muitos .quad:nth-child(17),
+  .muitos .quad:nth-child(18) {
+    grid-column: auto;
+    grid-row: auto;
+  }
+}

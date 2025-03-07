@@ -1,0 +1,136 @@
+Atividade Javascript
+
+---------------------------------------------- Cálculo de desconto: -------------------------------------------------------------------------------------------------------------------------
+
+let preco = parseFloat(prompt("Digite o valor do produto "));
+
+let desconto = parseFloat(prompt("Digite o valor do desconto "));
+
+function calcularDesconto(preco, desconto){
+    const calculoDesconto = (preco - (preco * desconto / 100));
+    console.log (`O desconto é de`, calculoDesconto)
+}
+
+  return calcularDesconto (preco, desconto);
+
+---------------------------------------------- Conversor de temperatura: --------------------------------------------------------------------------------------------------------------------
+
+let celsius = parseFloat(prompt("Digite um valor para celsius "));
+
+function celsiusParaFahrenheit(celsius){
+    const conversao = (celsius * 9 / 5) + 32;
+    console.log ("fahrenheit é igual a:", conversao);
+}
+
+  return celsiusParaFahrenheit (celsius);
+
+---------------------------------------------- Cálculo de Juros Simples: --------------------------------------------------------------------------------------------------------------------
+
+let principal = parseFloat(prompt("Digite um valor principal: "));
+let taxa = parseFloat(prompt("Digite um valor para a taxa: "));
+let tempo = parseFloat(prompt("Digite um valor para tempo: "));
+
+function calcularJuros(principal, taxa, tempo){
+    const juros = (principal * taxa * tempo);
+
+    console.log("O juros é igual a:", juros);
+}
+
+calcularJuros(principal, taxa, tempo);
+
+---------------------------------------------- Maior número: --------------------------------------------------------------------------------------------------------------------------------
+
+let num1 = parseFloat(prompt("Digite um valor para número 1: "));
+let num2 = parseFloat(prompt("Digite um valor para número 2: "));
+
+function maiorNumero(num1, num2){
+    if(num1 > num2){
+        console.log("O número 1 é maior que o número 2");
+    } else if(num2 > num1) {
+        console.log("O número 2 é maior que o número 1");
+    } else {
+        console.log("Os números são iguais");
+    }
+}
+
+maiorNumero(num1, num2);
+
+---------------------------------------------- Classificação de idade: ----------------------------------------------------------------------------------------------------------------------
+
+let idade = parseFloat(prompt("Digite a idade: "));
+
+function classificaIdade(idade){
+    if(idade < 12){
+        console.log("Criança");
+    } else if(idade < 18) {
+        console.log("Adolecente");
+    } else {
+        console.log("Adulta");
+    }
+}
+
+classificaIdade(idade);
+
+---------------------------------------------- Validação de nota: ---------------------------------------------------------------------------------------------------------------------------
+
+let nota = parseFloat(prompt("Digite um valor para a nota: "));
+
+function validarNota(nota){
+    if(nota >= 0 && nota <= 10){
+    return true;
+    
+} else {
+    return false;
+}
+}
+
+console.log(validarNota(nota));
+
+---------------------------------------------- Aprovado ou Reprovado: -----------------------------------------------------------------------------------------------------------------------
+
+let media = parseFloat(prompt("Digite o valor da média: "));
+let faltas = parseFloat(prompt("Digite a porcentagem de faltas: "));
+
+function verificarAprovacao(media, faltas){
+    if(media >= 7 && faltas < 25){
+    return true;
+    
+} else {
+    return false;
+}
+}
+
+console.log(verificarAprovacao(media, faltas));
+
+---------------------------------------------- Intervalo de valores: ------------------------------------------------------------------------------------------------------------------------
+
+let valor = parseFloat(prompt("Digite um valor: "));
+let min = parseFloat(prompt("Digite um valor: "));
+let max = parseFloat(prompt("Digite um valor: "));
+
+function estaNoIntervalo(valor, min, max){
+    if(valor >= min && valor <= max){
+    return true;
+    
+} else {
+    return false;
+}
+}
+
+console.log(estaNoIntervalo(valor, min, max));
+
+---------------------------------------------- Verificação de Login: ------------------------------------------------------------------------------------------------------------------------
+
+let username = parseFloat(prompt("Digite o nome de usuário: "));
+let senha = parseFloat(prompt("Digite a senha: "));
+
+function verificarLogin(username, senha){
+    if(username === "admin" && senha === "1234"){
+    console.log("Login bem-sucedido");
+    
+} else {
+    console.log("Usuário ou senha incorretos");
+}
+}
+
+console.log(verificarLogin(username, senha));

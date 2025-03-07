@@ -1,0 +1,78 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  height: 100vh;
+  background-color: rgb(4, 4, 79);
+}
+
+.quadrados {
+  width: 100%;
+  height: 100vh;
+  display: grid;
+  grid-template:
+    "quad1 quad2 quad3 quad4 quad5"
+    "quad6 quad7 quad8 quad8 quad8"
+    "footer footer footer footer footer";
+  gap: 10px;
+  padding: 10px;
+}
+
+.quadrados .quad:nth-child(1) {
+  grid-area: quad1;
+  background-color: rgb(239, 251, 255);
+}
+
+.quadrados .quad:nth-child(2) {
+  grid-area: quad2;
+  background-color: rgb(207, 243, 255);
+}
+.quadrados .quad:nth-child(3) {
+  grid-area: quad3;
+  background-color: rgb(165, 233, 255);
+}
+.quadrados .quad:nth-child(4) {
+  grid-area: quad4;
+  background-color: rgb(135, 224, 254);
+}
+.quadrados .quad:nth-child(5) {
+  grid-area: quad5;
+  background-color: rgb(104, 215, 252);
+}
+.quadrados .quad:nth-child(6) {
+  grid-area: quad6;
+  background-color: rgb(66, 208, 255);
+}
+.quadrados .quad:nth-child(7) {
+  grid-area: quad7;
+  background-color: rgb(23, 197, 255);
+}
+.quadrados .quad:nth-child(8) {
+  grid-area: quad8;
+  background-color: rgb(0, 191, 255);
+}
+.quadrados .quad:nth-child(9) {
+  grid-area: footer;
+  background-color: rgb(5, 147, 194);
+}
+
+@media (max-width: 520px) {
+  .quadrados {
+    grid-template: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr /1fr;
+  }
+  .quadrados .quad:nth-child(1),
+  .quadrados .quad:nth-child(2),
+  .quadrados .quad:nth-child(3),
+  .quadrados .quad:nth-child(4),
+  .quadrados .quad:nth-child(5),
+  .quadrados .quad:nth-child(6),
+  .quadrados .quad:nth-child(7),
+  .quadrados .quad:nth-child(8),
+  .quadrados .quad:nth-child(9) {
+    grid-column: auto;
+    grid-row: auto;
+  }
+}

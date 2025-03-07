@@ -1,0 +1,87 @@
+* {
+  /* zerar os código */
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  /* testando se estava sincronizado com a cor do fundo */
+  height: 100vh;
+  background-color: whitesmoke;
+}
+
+section {
+  height: 100%; /* altura e comprimento no limite da tela */
+  width: 100%;
+  display: grid; /* "display" para poder usar as propriedades do grid */
+  grid-template: 33% 33% 33%/ 1fr 1fr 1fr; /* "grid-template" para usar somente o tamanho determinado em row e column */
+  gap: 10px; /* "gap" para aumentar o espaço entre as DIVs */
+  padding: 15px; /* "padding" para dar espaço entre a borda e as DIVs */
+}
+
+.quadrados .quadrado:nth-child(1) {
+  /* ".quadrados" para chamar o pai pela classe, 
+  ".quadrado" para chamar todas as DIVs de uma vez através da classe igual, e "(1)" para se referir a DIV 1 */
+  background-color: darkblue; /*cor de fundo da DIV */
+  grid-column: 1/2; /* quantidade de espaço que a DIV vai ocupar (de uma linha a outra) */
+}
+
+.quadrados .quadrado:nth-child(2) {
+  background-color: blue;
+  grid-column: 2/3;
+}
+
+.quadrados .quadrado:nth-child(3) {
+  background-color: lightblue;
+  grid-column: 3/4;
+}
+
+.quadrados .quadrado:nth-child(4) {
+  background-color: darksalmon;
+  grid-column: 1/2;
+}
+
+.quadrados .quadrado:nth-child(5) {
+  background-color: salmon;
+  grid-column: 2/3;
+}
+
+.quadrados .quadrado:nth-child(6) {
+  background-color: lightsalmon;
+  grid-column: 3/4;
+}
+
+.quadrados .quadrado:nth-child(7) {
+  background-color: darkseagreen;
+  grid-column: 1/2;
+}
+
+.quadrados .quadrado:nth-child(8) {
+  background-color: seagreen;
+  grid-column: 2/3;
+}
+
+.quadrados .quadrado:nth-child(9) {
+  background-color: lightseagreen;
+  grid-column: 3/4;
+}
+
+@media (max-width: 520px) {
+  /* responsividade: quando a tela atingir determinado tamanho: todos os elemento ocuparão seus espaços em rows*/
+  .quadrados {
+    grid-template: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr /1fr; /* "1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr /1fr" = todos as linhas divididas por 1freime */
+  }
+  .quadrados .quadrado:nth-child(1),
+  .quadrados .quadrado:nth-child(2),
+  .quadrados .quadrado:nth-child(3),
+  .quadrados .quadrado:nth-child(4),
+  .quadrados .quadrado:nth-child(5),
+  .quadrados .quadrado:nth-child(6),
+  .quadrados .quadrado:nth-child(7),
+  .quadrados .quadrado:nth-child(8),
+  .quadrados .quadrado:nth-child(9) {
+    grid-column: auto;
+    grid-row: auto;
+  }
+}
