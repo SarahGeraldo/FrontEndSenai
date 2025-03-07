@@ -1,0 +1,3 @@
+(método) Array.push (valor) => Adiciona um novo elemento na matriz/vetor.
+
+(propriedade) Array.length => Retorna o tamanho da matriz, ou seja o comprimento da matriz.

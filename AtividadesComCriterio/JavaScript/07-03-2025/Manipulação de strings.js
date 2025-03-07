@@ -10,6 +10,7 @@ contarLetras(texto);
 
 // Inverter String: Desenvolva uma função inverterString(texto) que retorne o texto invertido.
 
+// VERSÃO FEITA POR MIM
 let texto = prompt("Digite uma palavra: ");
 let textoInvertido = "";
 
@@ -22,6 +23,21 @@ function inverterString(texto) {
 }
 
 console.log(inverterString(texto));
+
+// CORREÇÃO FEITA COM OS PROFESSORES
+
+// SPLIT = [H, E, L, L, O]
+// REVERSE = [O, L, L, E, H]
+// JOIN = OLLEH
+
+let text = prompt("Digite um texto: ");
+
+function inverterString(texto) {
+  console.log(texto.split("").reverse().join(""));
+  // o split tranforma a string em array para que reverse possa ser usado
+  // o join transforma o array em string novamente para que possa ser enviada para o console
+}
+inverterString(texto);
 
 // Verificar Palíndromo: Crie uma função ehPalindromo(texto) que verifique se uma string é um palíndromo, ignorando espaços e diferenças entre maiúsculas e minúsculas.
 

@@ -1,0 +1,135 @@
+// CRIAR VARIAVEIS
+var nome = "Matheus"; // 'var' tem escopo global ou de função e pode ser redeclarado e atualizado.
+let sobrenome = "Luiz"; // 'let' tem escopo de bloco e pode ser atualizado, mas não pode ser redeclarado no mesmo escopo.
+const numero = 10; // 'const' tem escopo de bloco e não pode ser atualizado ou redeclarado.
+
+// OPERADORES ARITMÉTICOS
+let numero1 = 10; 
+let numero2 = 5; 
+
+// Adição ( + ) 
+console.log("O resultado da adição é: ", numero1+numero2); 
+
+// Subtração ( - ) 
+console.log("O resultado da subtração é: ", numero1-numero2); 
+
+ // Multiplicação ( * ) 
+console.log("O resultado da multiplicação é: ", numero1*numero2); 
+
+// Divisão ( / ) 
+console.log("O resultado da divisão é: ", numero1/numero2); 
+
+// Módulo - Resto da Divisão ( % ) 
+console.log("O resto da divisão é: ", numero1%numero2); 
+
+// Exponenciação ( ** ) 
+console.log("A exponenciação dos números é: ", numero1**numero2); 
+
+// Incremento ( ++ ) 
+numero1++; 
+numero2++; 
+console.log("O incremento do primeiro número é: ", numero1); 
+console.log("O incremento do segundo número é: ", numero2); 
+
+// Decremento ( -- ) 
+numero1--; 
+numero2--; 
+console.log("O decremento do primeiro número é: ", numero1); 
+console.log("O decremento do segundo número é: ", numero2); 
+
+// Adição e Atribuição ( += ) 
+// É o mesmo que numero1 = numero1 + 10; 
+numero1 += 10; 
+console.log("A soma e a atribuição do primeiro número é: ", numero1); 
+
+// Subtração e Atribuição ( -= ) 
+// É o mesmo que numero2 = numero2 - 2; 
+numero2 -= 2; 
+console.log("A subtração e a atribuição do segundo número é: ", numero2);  
+
+// OPERADORES RELACIONAIS
+// Maior ( > )
+let numero1 = 10;
+let numero2 = 9;
+console.log(numero1 > numero2)
+
+// Menor ( < )
+let numero3 = 3;
+let numero4 = 7;
+console.log(numero3 < numero4)
+
+// Maior igual ( >= )
+let numero5 = 7;
+let numero6 = 7;
+console.log(numero5 >= numero6)
+
+// Menor igual ( <= )
+let numero7 = 3;
+let numero8 = 7;
+console.log(numero7 <= numero8)
+
+// Igual a ( == )
+let numero9 = 3;
+let numero10 = "3";
+console.log(numero9 == numero10)
+
+// Estritamente igual ( === )
+let numero11 = 5;
+let numero12 = "5";
+console.log(numero11 === numero12)
+
+// Diferente ( != )
+let numero13 = '7';
+let numero14 = 7;
+console.log(numero13 != numero14)
+
+// Estritamente diferente ( !== )
+let numero15 = "7";
+let numero16 = 7;
+console.log(numero15 !== numero16)
+
+// OPERADORES LÓGICOS
+let numero1 = 7;
+let numero2 = 10;
+
+console.log( numero1 > 5 && numero2 < 7);
+console.log( numero1 > 5 && numero2 > 7);
+
+console.log( numero1 > 10 || numero2 > 7);
+console.log( numero1 > 5 || numero2 > 11);
+console.log( numero1 > 10 || numero2 > 11);
+
+let a = true;
+let b = false;
+
+console.log("O valor de A: ", !a);
+console.log("O valor de B: ", !b)
+
+let numero = prompt("Digite um número: ");
+
+// FUNÇÕES
+// Função Nomeada (Named Function)
+// É uma função declarada com um nome e pode ser
+// reutilizada ao longo do código.
+function saudacao1(nome){
+    console.log(`Olá ${nome}, como você está?`);
+}
+
+saudacao1("Matheus");
+
+// Função Anônima (Anonymous Function)
+// É uma função sem nome, geralmente atribuída a uma
+// variável ou usada como argumento de outra função.
+const saudacao2 = function(nome) {
+    return `Olá, ${nome}!`;
+};
+
+console.log(saudacao2("Marcio"));
+
+// Arrow Function (Função de Seta)
+// Introduzida no ES6, tem uma sintaxe mais curta e limpa.
+const saudacao3 = (nome) => {
+    return `Olá, ${nome}. Eu sou uma função de seta!`;
+}
+
+console.log(saudacao3("Carla"))

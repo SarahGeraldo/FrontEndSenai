@@ -1,0 +1,43 @@
+for (let i=0; i<10; i++)
+
+incrementado => i++   | Serve para interromper o for
+decrementado => i--   | de forma não repentina.
+
+-------------------------------------------------------------------------
+
+while(condição){
+
+}
+
+do{
+
+}while()
+
+--------------------------------------------------------------------------
+
+while               X               Do while
+
+Verifica se TRUE                    Executa e depois verifica se TRUE
+primeiro e depois                   ou FALSE.
+executa.
+
+----------------------------------------------------------------------------
+
+COMO USAR O SWITCH CASE:
+
+switch (expressao) {
+  case valor1:
+    // código
+    break;
+
+  case valor2:
+    // código
+    break;
+
+    defoult;
+  // código
+}
+
+--------------------------------------------------------------------
+
+length => serve para pegar uma parte da frase
