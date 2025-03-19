@@ -1,0 +1,229 @@
+/* FONTES USADAS: */
+@font-face {
+  font-family: "Copperplate";
+  src: url("../Fontes/Copperplate.otf");
+}
+
+@font-face {
+  font-family: "JoseFins";
+  src: url("../Fontes/JosefinSans.ttf");
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+/* rgb(225, 060, 100) */
+body {
+  height: 100vh;
+  background-color: rgb(579, 322, 090);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pag {
+  width: 80%;
+  height: 80%;
+  background-color: white;
+  border-radius: 30px;
+  box-shadow: 2px -10px 35px rgb(225, 060, 100);
+
+  display: grid;
+  grid-template-columns: 40% 60%;
+  grid-template-rows: 1fr;
+  justify-items: center;
+  align-items: center;
+
+  overflow: hidden;
+}
+
+.imagePag {
+  width: 100%;
+  height: 100%;
+  background: url("../Imagens/wallpaper.jpg") center / cover no-repeat;
+  border-radius: 0 30px 30px 0;
+
+  padding-left: 10%;
+  position: relative;
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.imagePag::before {
+  content: "";
+  position: absolute;
+  /* sem o "position: absolute" o elemento vai considerar o body como elemento pai */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 1;
+}
+
+.imagePag h1,
+.imagePag p {
+  position: relative;
+  z-index: 2;
+  color: white;
+}
+
+.imagePag h1 {
+  font-family: "JoseFins";
+  font-size: 30px;
+}
+
+.imagePag p {
+  font-family: Copperplate;
+  font-size: 13px;
+}
+
+#cadastroForm {
+  width: 80%;
+  height: 90%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+#cadastroForm h1,
+#cadastroForm p {
+  width: 100%;
+  text-align: center;
+}
+
+#cadastroForm h1 {
+  font-family: "JoseFins";
+  font-size: 2em;
+  /* "2em" o  "em" significa que a fonte vai se basear no elemento pai*/
+  color: rgb(225, 060, 100);
+}
+
+#cadastroForm p {
+  font-family: "Copperplate";
+  font-size: 13px;
+  font-style: italic;
+  color: rgb(225, 060, 100);
+}
+
+#cadastroForm .input_name {
+  position: relative;
+  width: calc(50% - 15px);
+  display: flex;
+  flex-direction: column;
+  color: rgb(225, 060, 100);
+}
+
+#cadastroForm .input_name:nth-child(8) {
+  width: 100%;
+}
+
+#cadastroForm .input_name input {
+  position: relative;
+  z-index: 2;
+  font-family: "Copperplate";
+  font-size: 11px;
+  margin-top: 5px;
+  height: 30px;
+  padding: 5px 10px;
+  border: none;
+  outline: 0;
+  /* "outline" serve para tirar a caixa branca do input */
+  background-color: transparent;
+  border-radius: 0;
+  border-bottom: 1px solid black;
+  /* "border-bottom: 1px solid black" meche na linha */
+  color: rgb(225, 060, 100);
+}
+
+#cadastroForm .input_name label {
+  font-family: "Copperplate";
+  font-size: 11px;
+
+  position: absolute;
+  top: 50%;
+  left: 10%;
+  transform: translateY(-50%);
+  transition: all 0.5s ease;
+  z-index: 1;
+  color: rgb(225, 060, 100);
+}
+
+#cadastroForm .input_name input:focus + label,
+#cadastroForm .input_name input:valid + label {
+  top: -10%;
+  left: 0;
+}
+
+#cadastroForm .input_name input {
+  position: relative;
+  z-index: 2;
+  font-family: "Copperplate";
+  font-size: 11px;
+  margin-top: 5px;
+  height: 30px;
+  padding: 5px 10px;
+  border: none;
+  outline: 0;
+  /* "outline" serve para tirar a caixa branca do input */
+  background-color: transparent;
+  border-radius: 0;
+  border-bottom: 1px solid black;
+  /* "border-bottom: 1px solid black" meche na linha */
+  color: rgb(225, 060, 100);
+}
+
+#cadastroForm .input_name label {
+  font-family: "Copperplate";
+  font-size: 11px;
+
+  position: absolute;
+  top: 50%;
+  left: 10%;
+  transform: translateY(-50%);
+  transition: all 0.5s ease;
+  z-index: 1;
+  color: rgb(225, 060, 100);
+}
+
+#cadastroForm .input_name input:focus + label,
+#cadastroForm .input_name input:valid + label {
+  top: -10%;
+  left: 0;
+}
+
+#cadastroForm .botao button {
+  font-family: "Copperplate";
+  border: 1px solid black;
+  width: 100px;
+  padding: 10px 20px;
+  background-color: rgb(225, 060, 100);
+  color: black;
+  cursor: pointer;
+  font-size: 18px;
+  letter-spacing: 1.5px;
+}
+
+#cadastroForm .botao button:hover {
+  background-color: transparent;
+  border: 1px solid black;
+  color: black;
+  transition: 0.3s;
+}
+
+#cadastroForm .botao .msgError {
+  margin-bottom: 10px;
+  height: 25px;
+  color: black;
+  font-style: italic;
+}
