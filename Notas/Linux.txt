@@ -1,0 +1,5 @@
+- npm init
+- npm install express
+- npm i body-parser
+- node app.js
+app = nome do arquivo de sua aplicação
