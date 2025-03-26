@@ -355,7 +355,8 @@ body {
   }
 
   .imagePag h1 {
-    font-size: 25px;
+    font-size: 24px;
+    width: 100%;
   }
 
   .imagePag p {
@@ -404,6 +405,7 @@ body {
 
   .imagePag h1 {
     font-size: 20px;
+    width: 100%;
   }
 
   .imagePag p {
