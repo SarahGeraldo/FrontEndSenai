@@ -27,6 +27,85 @@ const checkNome = () => {
 
 // ------------------------------------------------------------------
 
+// cpf:
+function formatarcpf(event) {
+  let cpf = event.target.value;
+
+  // verificar se há letras:
+  console.log(/[A-Za-zÀ-ÿ]/.test(cpf));
+
+  if (/[A-Za-zÀ-ÿ]/.test(cpf)) {
+    createDisplayMsgError("The cpf it's wrong.");
+  } else {
+    createDisplayMsgError("");
+  }
+
+  cpf = cpf.replace(/\D/g, "");
+  // "replace" remove os caracteres nõo numéricos
+
+  // verificar a quantidade de números permitidos:
+  if (cpf.length > 11) {
+    cpf = cpf.substring(0, 11);
+  }
+
+  // adicionar parêntestes:
+  if (cpf.length > 3) {
+    cpf = cpf.replace(/(\d{3})(\d)/, "$1.$2");
+    cpf = cpf.replace(/(\d{3})(\d)/, "$1.$2");
+    cpf = cpf.replace(/(\d{3})(\d{1,2})$/, "$1-$2");
+  } else if (cpf.length > 0) {
+    cpf = `${cpf}`;
+  }
+
+  // // adicionar pontuação:
+  // if (cpf.length > 10) {
+  //   cpf = cpf.replace(/(\(\d{3}\)).(\d{3})(\d{1,4})/, "$1 $2-$3");
+  // }
+
+  event.target.value = cpf;
+}
+
+// ------------------------------------------------------------------
+
+// rg:
+function formatarrg(event) {
+  let rg = event.target.value;
+
+  // verificar se há letras:
+  console.log(/[A-Za-zÀ-ÿ]/.test(rg));
+  if (/[A-Za-zÀ-ÿ]/.test(rg)) {
+    createDisplayMsgError("The rg it's wrong.");
+  } else {
+    createDisplayMsgError("");
+  }
+
+  rg = rg.replace(/\D/g, "");
+  // "replace" remove os caracteres nõo numéricos
+
+  // verificar a quantidade de números permitidos:
+  if (rg.length > 9) {
+    rg = rg.substring(0, 9);
+  }
+
+  // adicionar parêntestes:
+  if (rg.length > 3) {
+    rg = rg.replace(/(\d{2})(\d)/, "$1.$2");
+    rg = rg.replace(/(\d{3})(\d)/, "$1.$2");
+    rg = rg.replace(/(\d{3})(\d{1,2})$/, "$1-$2");
+  } else if (rg.length > 0) {
+    rg = `${rg}`;
+  }
+
+  // // adicionar pontuação:
+  // if (cpf.length > 10) {
+  //   cpf = cpf.replace(/(\(\d{3}\)).(\d{3})(\d{1,4})/, "$1 $2-$3");
+  // }
+
+  event.target.value = rg;
+}
+
+// ------------------------------------------------------------------
+
 // função para verificar se o email está dentro dos critérios:
 const checkEmail = (email) => {
   const partesEmail = email.split("@");
@@ -51,6 +130,8 @@ const checkEmail = (email) => {
 function xxx() {}
 
 function checkPasswordMatch() {
+  console.log(password.value);
+  console.log(confirmPassword.value);
   return password.value === confirmPassword.value ? true : false;
 }
 
@@ -73,6 +154,7 @@ function maskPhoneNumber(event) {
     phone = phone.substring(0, 11);
   }
 
+  // adicionar parêntestes:
   if (phone.length > 2) {
     phone = `(${phone.substring(0, 2)}) ${phone.substring(2)}`;
   } else if (phone.length > 0) {
@@ -111,13 +193,11 @@ function checkPasswordStrength(password) {
 
 // ------------------------------------------------------------------
 
-// ------------------------------------------------------------------
-
 // função par verificar e enviar dados:
 function fetchDatas(event) {
   event.preventDefault();
 
-  if (!chackNome) {
+  if (!checkNome) {
     createDisplayMsgError(
       "The name Password must not contain numbers or characters."
     );
@@ -131,7 +211,7 @@ function fetchDatas(event) {
   }
 
   if (!checkPasswordMatch()) {
-    ("The passwords don't match.");
+    console.log("The passwords don't match.");
     return;
   }
 
@@ -160,11 +240,32 @@ function fetchDatas(event) {
 
 // ------------------------------------------------------------------
 
+// função para criar chuva no formulário:
+// funçaõ de seta...
+const rainFunction = () => {
+  let rain = document.createElement("span");
+  let cont_rain = document.getElementsByClassName("container_rain");
+  let left = Math.floor(Math.random() * (310 - 65) + 65);
+  let duration = Math.random() * 5;
+
+  rain.classList.add("rain");
+  cont_rain[0].appendChild(rain);
+  rain.style.left = left + "px";
+  rain.style.animationDuration = 1 + duration;
+
+  setTimeout(() => {
+    cont_rain[0].removeChild(rain);
+  }, 1500);
+};
+
+setInterval(() => {
+  rainFunction();
+}, 250);
+
+// ------------------------------------------------------------------
+
 // "addEventListener()" é um comando JS que executa o comando de dentro do parênteses
-formulario.addEventListener("submit", function (e) {
-  e.preventDefault();
-  console.log(nome.value);
-});
+formulario.addEventListener("submit", fetchDatas);
 // "preventDefault" é um método JS uasado para associar um evento a um elemnto do HTML (ele permite que o texto digitado possa ser lido e analisado)
 
 // ------------------------------------------------------------------
@@ -200,3 +301,7 @@ password.addEventListener("input", () => {
 });
 
 phone.addEventListener("input", maskPhoneNumber);
+
+cpf.addEventListener("input", formatarcpf);
+
+rg.addEventListener("input", formatarrg);

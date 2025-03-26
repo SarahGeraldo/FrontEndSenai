@@ -25,6 +25,78 @@ body {
   align-items: center;
 }
 
+.container_rain {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 400px;
+  height: 100vh;
+  background-color: transparent;
+}
+
+.cloud {
+  position: absolute;
+  background: url(../Imagens/nuvem.png) center / cover no-repeat;
+  width: 450px;
+  height: 200px;
+  filter: drop-shadow(2px 2px 20px #202020);
+  /* "filter: drop-shadow" adiciona sombra á imagem*/
+}
+
+.cloud:nth-child(1) {
+  top: 2.5%;
+  left: 5%;
+}
+
+.cloud:nth-child(2) {
+  top: 2.5%;
+  left: 24%;
+  z-index: 3000;
+}
+
+.cloud:nth-child(3) {
+  top: 9.5%;
+  left: 5%;
+  z-index: 3000;
+}
+
+.rain {
+  background-color: #e3eed4;
+  width: 5px;
+  height: 5px;
+  border-radius: 0 50% 50% 50%;
+  transform: rotate(45deg); /* "deg" = graus */
+  box-shadow: inset -25px 10px 0px -10px #fefefe;
+  z-index: 1000;
+  position: absolute;
+  top: 90px;
+
+  transform-origin: bottom;
+  animation: animate 2s linear infinite;
+}
+
+@keyframes animate {
+  0% {
+    transform: translateY(0) scaleY(1);
+    opacity: 1;
+  }
+
+  60% {
+    transform: translateY(80vh) scaleY(1);
+    opacity: 1;
+  }
+
+  80% {
+    transform: translateY(80vh) scaleY(0.2);
+    opacity: 0.5;
+  }
+
+  100% {
+    transform: translateY(80vh) scaleY(0.2);
+    opacity: 0;
+  }
+}
+
 .pag {
   width: 80%;
   height: 80%;
@@ -47,7 +119,7 @@ body {
   background: url("../Imagens/wallpaper.jpg") center / cover no-repeat;
   border-radius: 0 30px 30px 0;
 
-  padding-left: 10%;
+  padding-left: 7%;
   position: relative;
   overflow: hidden;
 
@@ -77,12 +149,12 @@ body {
 
 .imagePag h1 {
   font-family: "JoseFins";
-  font-size: 30px;
+  font-size: 40px;
 }
 
 .imagePag p {
   font-family: Copperplate;
-  font-size: 13px;
+  font-size: 18px;
 }
 
 #cadastroForm {
@@ -111,7 +183,7 @@ body {
 
 #cadastroForm p {
   font-family: "Copperplate";
-  font-size: 13px;
+  font-size: 18px;
   font-style: italic;
   color: rgb(225, 060, 100);
 }
@@ -132,7 +204,7 @@ body {
   position: relative;
   z-index: 2;
   font-family: "Copperplate";
-  font-size: 11px;
+  font-size: 16px;
   margin-top: 5px;
   height: 30px;
   padding: 5px 10px;
@@ -148,7 +220,7 @@ body {
 
 #cadastroForm .input_name label {
   font-family: "Copperplate";
-  font-size: 11px;
+  font-size: 16px;
 
   position: absolute;
   top: 50%;
@@ -169,7 +241,7 @@ body {
   position: relative;
   z-index: 2;
   font-family: "Copperplate";
-  font-size: 11px;
+  font-size: 16px;
   margin-top: 5px;
   height: 30px;
   padding: 5px 10px;
@@ -185,7 +257,7 @@ body {
 
 #cadastroForm .input_name label {
   font-family: "Copperplate";
-  font-size: 11px;
+  font-size: 16px;
 
   position: absolute;
   top: 50%;
@@ -226,4 +298,147 @@ body {
   height: 25px;
   color: black;
   font-style: italic;
+}
+
+@media (max-width: 1070px) {
+  .cloud {
+    width: 280px;
+    height: 110px;
+  }
+
+  .pag {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 30% 70%;
+  }
+
+  .imagePag {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 7%;
+  }
+
+  .imagePag h1 {
+    font-size: 30px;
+  }
+
+  .imagePag p {
+    font-size: 15px;
+  }
+
+  #cadastroForm {
+    gap: 13px;
+  }
+
+  #cadastroForm .titulo h1 {
+    font-size: 25px;
+  }
+
+  /* #cadastroForm .titulo p {
+    font-size: 15px;
+  } */
+
+  #cadastroForm .input_name input {
+    font-size: 13px;
+  }
+
+  #cadastroForm .input_name label {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 830px) {
+  .cloud {
+    width: 270px;
+    height: 100px;
+  }
+
+  .imagePag h1 {
+    font-size: 25px;
+  }
+
+  .imagePag p {
+    font-size: 10px;
+  }
+
+  #cadastroForm h1,
+  #cadastroForm p {
+    font-size: 10px;
+  }
+
+  #cadastroForm .input_name input {
+    font-size: 8px;
+  }
+
+  #cadastroForm .input_name label {
+    font-size: 8px;
+  }
+
+  #cadastroForm .input_name input {
+    font-size: 8px;
+  }
+
+  #cadastroForm .input_name input {
+    font-size: 8px;
+  }
+
+  #cadastroForm .input_name label {
+    font-size: 8px;
+  }
+
+  #cadastroForm .botao button {
+    font-size: 10px;
+    padding: 10px 10px;
+    z-index: 1000;
+
+    position: relative;
+  }
+}
+
+@media (max-width: 360px) {
+  .cloud {
+    width: 250px;
+    height: 95px;
+  }
+
+  .imagePag h1 {
+    font-size: 20px;
+  }
+
+  .imagePag p {
+    font-size: 10px;
+  }
+
+  #cadastroForm .titulo {
+    font-size: 10px;
+  }
+
+  #cadastroForm .input_name input {
+    font-size: 8px;
+  }
+
+  #cadastroForm .input_name label {
+    font-size: 8px;
+  }
+
+  #cadastroForm .input_name input {
+    font-size: 8px;
+  }
+
+  #cadastroForm .input_name input {
+    font-size: 8px;
+  }
+
+  #cadastroForm .input_name label {
+    font-size: 8px;
+  }
+
+  #cadastroForm .botao {
+    font-size: 10px;
+    padding: 10px 10px;
+    z-index: 1000;
+
+    position: relative;
+  }
 }
