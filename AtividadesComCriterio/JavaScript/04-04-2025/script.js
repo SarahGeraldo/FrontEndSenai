@@ -40,7 +40,7 @@ class Gerente extends Funcionario {
   }
 }
 
-const funcionario = new Funcionario("Marilia", 2000, 2009);
+const funcionario = new Funcionario("Marilia", 2000, "5/10/2009");
 funcionario.exibirDetalhes();
-const gerente = new Gerente("Rebeca", 7000, 2000, "Logística");
+const gerente = new Gerente("Rebeca", 7000, "23/1/2000", "Logística");
 gerente.mostrarGer();
