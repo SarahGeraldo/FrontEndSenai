@@ -48,10 +48,27 @@ body {
 
 .busca {
   position: relative;
-  background-color: transparent;
+  width: 200px;
+}
+
+.input-icon {
+  /* background-repeat: no-repeat; */
+  /* background-position: calc(100% - 10px) center;
+  padding-right: 30px; espaço para o ícone */
+  width: 100%;
+}
+
+.icon {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 10;
+  border: none;
+  background: transparent;
+  outline: none;
 }
 
 .text .fa-location-dot {
-  position: absolute;
+  position: relative;
   /* padding: 0 15px; */
 }
