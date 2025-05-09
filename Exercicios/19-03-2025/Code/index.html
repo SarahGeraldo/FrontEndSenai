@@ -75,3 +75,763 @@
     </section>
   </body>
 </html>
+
+<style>
+  /* FONTES USADAS: */
+  @font-face {
+    font-family: "Copperplate";
+    src: url("../Fontes/Copperplate.otf");
+  }
+
+  @font-face {
+    font-family: "JoseFins";
+    src: url("../Fontes/JosefinSans.ttf");
+  }
+
+  * {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+  }
+
+  /* rgb(225, 060, 100) */
+  body {
+    height: 100vh;
+    background-color: rgb(579, 322, 090);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .container_rain {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 400px;
+    height: 100vh;
+    background-color: transparent;
+  }
+
+  .cloud {
+    position: absolute;
+    background: url(../Imagens/nuvem.png) center / cover no-repeat;
+    width: 450px;
+    height: 200px;
+    filter: drop-shadow(2px 2px 20px #202020);
+    /* "filter: drop-shadow" adiciona sombra á imagem*/
+  }
+
+  .cloud:nth-child(1) {
+    top: 2.5%;
+    left: 5%;
+  }
+
+  .cloud:nth-child(2) {
+    top: 2.5%;
+    left: 24%;
+    z-index: 3000;
+  }
+
+  .cloud:nth-child(3) {
+    top: 9.5%;
+    left: 5%;
+    z-index: 3000;
+  }
+
+  .rain {
+    background-color: #e3eed4;
+    width: 5px;
+    height: 5px;
+    border-radius: 0 50% 50% 50%;
+    transform: rotate(45deg); /* "deg" = graus */
+    box-shadow: inset -25px 10px 0px -10px #fefefe;
+    z-index: 1000;
+    position: absolute;
+    top: 90px;
+
+    transform-origin: bottom;
+    animation: animate 2s linear infinite;
+  }
+
+  @keyframes animate {
+    0% {
+      transform: translateY(0) scaleY(1);
+      opacity: 1;
+    }
+
+    60% {
+      transform: translateY(80vh) scaleY(1);
+      opacity: 1;
+    }
+
+    80% {
+      transform: translateY(80vh) scaleY(0.2);
+      opacity: 0.5;
+    }
+
+    100% {
+      transform: translateY(80vh) scaleY(0.2);
+      opacity: 0;
+    }
+  }
+
+  .pag {
+    width: 80%;
+    height: 80%;
+    background-color: white;
+    border-radius: 30px;
+    box-shadow: 2px -10px 35px rgb(225, 060, 100);
+
+    display: grid;
+    grid-template-columns: 40% 60%;
+    grid-template-rows: 1fr;
+    justify-items: center;
+    align-items: center;
+
+    overflow: hidden;
+  }
+
+  .imagePag {
+    width: 100%;
+    height: 100%;
+    background: url("../Imagens/wallpaper.jpg") center / cover no-repeat;
+    border-radius: 0 30px 30px 0;
+
+    padding-left: 7%;
+    position: relative;
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .imagePag::before {
+    content: "";
+    position: absolute;
+    /* sem o "position: absolute" o elemento vai considerar o body como elemento pai */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 1;
+  }
+
+  .imagePag h1,
+  .imagePag p {
+    position: relative;
+    z-index: 2;
+    color: white;
+  }
+
+  .imagePag h1 {
+    font-family: "JoseFins";
+    font-size: 40px;
+  }
+
+  .imagePag p {
+    font-family: Copperplate;
+    font-size: 18px;
+  }
+
+  #cadastroForm {
+    width: 80%;
+    height: 90%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 30px;
+  }
+
+  #cadastroForm h1,
+  #cadastroForm p {
+    width: 100%;
+    text-align: center;
+  }
+
+  #cadastroForm h1 {
+    font-family: "JoseFins";
+    font-size: 2em;
+    /* "2em" o  "em" significa que a fonte vai se basear no elemento pai*/
+    color: rgb(225, 060, 100);
+  }
+
+  #cadastroForm p {
+    font-family: "Copperplate";
+    font-size: 18px;
+    font-style: italic;
+    color: rgb(225, 060, 100);
+  }
+
+  #cadastroForm .input_name {
+    position: relative;
+    width: calc(50% - 15px);
+    display: flex;
+    flex-direction: column;
+    color: rgb(225, 060, 100);
+  }
+
+  #cadastroForm .input_name:nth-child(8) {
+    width: 100%;
+  }
+
+  #cadastroForm .input_name input {
+    position: relative;
+    z-index: 2;
+    font-family: "Copperplate";
+    font-size: 16px;
+    margin-top: 5px;
+    height: 30px;
+    padding: 5px 10px;
+    border: none;
+    outline: 0;
+    /* "outline" serve para tirar a caixa branca do input */
+    background-color: transparent;
+    border-radius: 0;
+    border-bottom: 1px solid black;
+    /* "border-bottom: 1px solid black" meche na linha */
+    color: rgb(225, 060, 100);
+  }
+
+  #cadastroForm .input_name label {
+    font-family: "Copperplate";
+    font-size: 16px;
+
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    transform: translateY(-50%);
+    transition: all 0.5s ease;
+    z-index: 1;
+    color: rgb(225, 060, 100);
+  }
+
+  #cadastroForm .input_name input:focus + label,
+  #cadastroForm .input_name input:valid + label {
+    top: -10%;
+    left: 0;
+  }
+
+  #cadastroForm .input_name input {
+    position: relative;
+    z-index: 2;
+    font-family: "Copperplate";
+    font-size: 16px;
+    margin-top: 5px;
+    height: 30px;
+    padding: 5px 10px;
+    border: none;
+    outline: 0;
+    /* "outline" serve para tirar a caixa branca do input */
+    background-color: transparent;
+    border-radius: 0;
+    border-bottom: 1px solid black;
+    /* "border-bottom: 1px solid black" meche na linha */
+    color: rgb(225, 060, 100);
+  }
+
+  #cadastroForm .input_name label {
+    font-family: "Copperplate";
+    font-size: 16px;
+
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    transform: translateY(-50%);
+    transition: all 0.5s ease;
+    z-index: 1;
+    color: rgb(225, 060, 100);
+  }
+
+  #cadastroForm .input_name input:focus + label,
+  #cadastroForm .input_name input:valid + label {
+    top: -10%;
+    left: 0;
+  }
+
+  #cadastroForm .botao button {
+    font-family: "Copperplate";
+    border: 1px solid black;
+    width: 100px;
+    padding: 10px 20px;
+    background-color: rgb(225, 060, 100);
+    color: black;
+    cursor: pointer;
+    font-size: 18px;
+    letter-spacing: 1.5px;
+  }
+
+  #cadastroForm .botao button:hover {
+    background-color: transparent;
+    border: 1px solid black;
+    color: black;
+    transition: 0.3s;
+  }
+
+  #cadastroForm .botao .msgError {
+    margin-bottom: 10px;
+    height: 25px;
+    color: black;
+    font-style: italic;
+  }
+
+  @media (max-width: 1070px) {
+    .cloud {
+      width: 280px;
+      height: 110px;
+    }
+
+    .pag {
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: 30% 70%;
+    }
+
+    .imagePag {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      padding: 7%;
+    }
+
+    .imagePag h1 {
+      font-size: 30px;
+    }
+
+    .imagePag p {
+      font-size: 15px;
+    }
+
+    #cadastroForm {
+      gap: 13px;
+    }
+
+    #cadastroForm .titulo h1 {
+      font-size: 25px;
+    }
+
+    /* #cadastroForm .titulo p {
+    font-size: 15px;
+  } */
+
+    #cadastroForm .input_name input {
+      font-size: 13px;
+    }
+
+    #cadastroForm .input_name label {
+      font-size: 13px;
+    }
+  }
+
+  @media (max-width: 830px) {
+    .cloud {
+      width: 270px;
+      height: 100px;
+    }
+
+    .imagePag h1 {
+      font-size: 24px;
+      width: 100%;
+    }
+
+    .imagePag p {
+      font-size: 10px;
+    }
+
+    #cadastroForm h1,
+    #cadastroForm p {
+      font-size: 10px;
+    }
+
+    #cadastroForm .input_name input {
+      font-size: 8px;
+    }
+
+    #cadastroForm .input_name label {
+      font-size: 8px;
+    }
+
+    #cadastroForm .input_name input {
+      font-size: 8px;
+    }
+
+    #cadastroForm .input_name input {
+      font-size: 8px;
+    }
+
+    #cadastroForm .input_name label {
+      font-size: 8px;
+    }
+
+    #cadastroForm .botao button {
+      font-size: 10px;
+      padding: 10px 10px;
+      z-index: 1000;
+
+      position: relative;
+    }
+  }
+
+  @media (max-width: 360px) {
+    .cloud {
+      width: 250px;
+      height: 95px;
+    }
+
+    .imagePag h1 {
+      font-size: 20px;
+      width: 100%;
+    }
+
+    .imagePag p {
+      font-size: 10px;
+    }
+
+    #cadastroForm .titulo {
+      font-size: 10px;
+    }
+
+    #cadastroForm .input_name input {
+      font-size: 8px;
+    }
+
+    #cadastroForm .input_name label {
+      font-size: 8px;
+    }
+
+    #cadastroForm .input_name input {
+      font-size: 8px;
+    }
+
+    #cadastroForm .input_name input {
+      font-size: 8px;
+    }
+
+    #cadastroForm .input_name label {
+      font-size: 8px;
+    }
+
+    #cadastroForm .botao {
+      font-size: 10px;
+      padding: 10px 10px;
+      z-index: 1000;
+
+      position: relative;
+    }
+  }
+</style>
+
+<script>
+  console.log("JS ativo");
+
+  const formulario = document.getElementById("cadastroForm");
+  const nome = document.getElementById("name");
+  const email = document.getElementById("email");
+  const password = document.getElementById("password");
+  const confirmPassword = document.getElementById("cPassword");
+  const phone = document.getElementById("tel");
+  const cpf = document.getElementById("cpf");
+  const rg = document.getElementById("rg");
+  const msgError = document.getElementsByClassName("msgError");
+
+  // ------------------------------------------------------------------
+
+  // função de seta para renderizar as diferentes mensagens de erro:
+  const createDisplayMsgError = (mensagem) => {
+    msgError[0].textContent = mensagem;
+  };
+
+  // ------------------------------------------------------------------
+
+  // função para verificar se o nome está dentro dos critérios:
+  const checkNome = () => {
+    const nomeRegex = /^[A-Za-zÀ-ÿ\s]+$/;
+    return nomeRegex.test(nome.value);
+  };
+
+  // ------------------------------------------------------------------
+
+  // cpf:
+  function formatarcpf(event) {
+    let cpf = event.target.value;
+
+    // verificar se há letras:
+    console.log(/[A-Za-zÀ-ÿ]/.test(cpf));
+
+    if (/[A-Za-zÀ-ÿ]/.test(cpf)) {
+      createDisplayMsgError("The cpf it's wrong.");
+    } else {
+      createDisplayMsgError("");
+    }
+
+    cpf = cpf.replace(/\D/g, "");
+    // "replace" remove os caracteres nõo numéricos
+
+    // verificar a quantidade de números permitidos:
+    if (cpf.length > 11) {
+      cpf = cpf.substring(0, 11);
+    }
+
+    // adicionar parêntestes:
+    if (cpf.length > 3) {
+      cpf = cpf.replace(/(\d{3})(\d)/, "$1.$2");
+      cpf = cpf.replace(/(\d{3})(\d)/, "$1.$2");
+      cpf = cpf.replace(/(\d{3})(\d{1,2})$/, "$1-$2");
+    } else if (cpf.length > 0) {
+      cpf = `${cpf}`;
+    }
+
+    // // adicionar pontuação:
+    // if (cpf.length > 10) {
+    //   cpf = cpf.replace(/(\(\d{3}\)).(\d{3})(\d{1,4})/, "$1 $2-$3");
+    // }
+
+    event.target.value = cpf;
+  }
+
+  // ------------------------------------------------------------------
+
+  // rg:
+  function formatarrg(event) {
+    let rg = event.target.value;
+
+    // verificar se há letras:
+    console.log(/[A-Za-zÀ-ÿ]/.test(rg));
+    if (/[A-Za-zÀ-ÿ]/.test(rg)) {
+      createDisplayMsgError("The rg it's wrong.");
+    } else {
+      createDisplayMsgError("");
+    }
+
+    rg = rg.replace(/\D/g, "");
+    // "replace" remove os caracteres nõo numéricos
+
+    // verificar a quantidade de números permitidos:
+    if (rg.length > 9) {
+      rg = rg.substring(0, 9);
+    }
+
+    // adicionar parêntestes:
+    if (rg.length > 3) {
+      rg = rg.replace(/(\d{2})(\d)/, "$1.$2");
+      rg = rg.replace(/(\d{3})(\d)/, "$1.$2");
+      rg = rg.replace(/(\d{3})(\d{1,2})$/, "$1-$2");
+    } else if (rg.length > 0) {
+      rg = `${rg}`;
+    }
+
+    // // adicionar pontuação:
+    // if (cpf.length > 10) {
+    //   cpf = cpf.replace(/(\(\d{3}\)).(\d{3})(\d{1,4})/, "$1 $2-$3");
+    // }
+
+    event.target.value = rg;
+  }
+
+  // ------------------------------------------------------------------
+
+  // função para verificar se o email está dentro dos critérios:
+  const checkEmail = (email) => {
+    const partesEmail = email.split("@");
+    // o "split" separa o email em duas pertes: antes e depois do @
+
+    if (
+      (partesEmail.length === 2 &&
+        partesEmail[1].toLowerCase() === "gmail.com") ||
+      (partesEmail.length === 2 &&
+        partesEmail[1].toLowerCase() === "outlook.com") ||
+      (partesEmail.length === 2 &&
+        partesEmail[1].toLowerCase() === "hotmail.com")
+    ) {
+      return true;
+    } else {
+      return false;
+    }
+  };
+
+  // ------------------------------------------------------------------
+
+  // função para verificar a igualdade das senhas:
+  function xxx() {}
+
+  function checkPasswordMatch() {
+    console.log(password.value);
+    console.log(confirmPassword.value);
+    return password.value === confirmPassword.value ? true : false;
+  }
+
+  // ------------------------------------------------------------------
+
+  // função para inserir máscara no telefone (com regex):
+  function maskPhoneNumber(event) {
+    let phone = event.target.value;
+
+    if (/[A-Za-zÀ-ÿ]/.test(phone)) {
+      createDisplayMsgError("The phone number must contain only numbers.");
+    } else {
+      createDisplayMsgError("");
+    }
+
+    phone = phone.replace(/\D/g, "");
+    // "replace" remove os caracteres nõo numéricos
+
+    if (phone.length > 11) {
+      phone = phone.substring(0, 11);
+    }
+
+    // adicionar parêntestes:
+    if (phone.length > 2) {
+      phone = `(${phone.substring(0, 2)}) ${phone.substring(2)}`;
+    } else if (phone.length > 0) {
+      phone = `(${phone})`;
+    }
+
+    if (phone.length > 10) {
+      phone = phone.replace(/(\(\d{2}\)) (\d{5})(\d{1,4})/, "$1 $2-$3");
+    }
+
+    event.target.value = phone;
+  }
+
+  // ------------------------------------------------------------------
+
+  // funçaõ para verificar força da senha
+  function checkPasswordStrength(password) {
+    if (!/[a-z]/.test(password)) {
+      return "The password must have at least one lowercase letter.";
+    }
+    if (!/[A-Z]/.test(password)) {
+      return "The password must have at least one capital letter.";
+    }
+    if (!/[\W_]/.test(password)) {
+      return "The password must have at least one special characters.";
+    }
+    if (!/\d/.test(password)) {
+      return "The password must have at least one number.";
+    }
+    if (password.length < 8) {
+      return "The password must have at least 8 characters.";
+    }
+
+    return null;
+  }
+
+  // ------------------------------------------------------------------
+
+  // função par verificar e enviar dados:
+  function fetchDatas(event) {
+    event.preventDefault();
+
+    if (!checkNome) {
+      createDisplayMsgError(
+        "The name Password must not contain numbers or characters."
+      );
+      return;
+    }
+
+    if (!checkEmail(email.value)) {
+      createDisplayMsgError("The email is invalid.");
+
+      return;
+    }
+
+    if (!checkPasswordMatch()) {
+      console.log("The passwords don't match.");
+      return;
+    }
+
+    const passwordError = checkPasswordStrength(password.value);
+    if (passwordError) {
+      createDisplayMsgError(passwordError);
+      return;
+    }
+
+    if (phone.value && /[A-Za-zÀ-ÿ]/.test(phone.value)) {
+      createDisplayMsgError("The phone must have at least only numbers.");
+      return;
+    }
+
+    const formData = {
+      nome: nome.value,
+      email: email.value,
+      password: password.value,
+      phone: phone.value,
+      cpf: cpf.value,
+      rg: rg.value,
+    };
+
+    console.log("Form sent: ", JSON.stringify(formData, null, 2));
+  }
+
+  // ------------------------------------------------------------------
+
+  // função para criar chuva no formulário:
+  // funçaõ de seta...
+  const rainFunction = () => {
+    let rain = document.createElement("span");
+    let cont_rain = document.getElementsByClassName("container_rain");
+    let left = Math.floor(Math.random() * (310 - 65) + 65);
+    let duration = Math.random() * 5;
+
+    rain.classList.add("rain");
+    cont_rain[0].appendChild(rain);
+    rain.style.left = left + "px";
+    rain.style.animationDuration = 1 + duration;
+
+    setTimeout(() => {
+      cont_rain[0].removeChild(rain);
+    }, 1500);
+  };
+
+  setInterval(() => {
+    rainFunction();
+  }, 250);
+
+  // ------------------------------------------------------------------
+
+  // "addEventListener()" é um comando JS que executa o comando de dentro do parênteses
+  formulario.addEventListener("submit", fetchDatas);
+  // "preventDefault" é um método JS uasado para associar um evento a um elemnto do HTML (ele permite que o texto digitado possa ser lido e analisado)
+
+  // ------------------------------------------------------------------
+
+  nome.addEventListener("input", () => {
+    if (nome.value && !checkNome()) {
+      createDisplayMsgError(
+        "The password must't contain numbers or special characters."
+      );
+    } else {
+      createDisplayMsgError("");
+    }
+  });
+
+  // ------------------------------------------------------------------
+
+  email.addEventListener("input", () => {
+    if (email.value && !checkEmail(email.value)) {
+      createDisplayMsgError("The email typed is invalid.");
+    } else {
+      createDisplayMsgError("");
+    }
+  });
+
+  // ------------------------------------------------------------------
+
+  password.addEventListener("input", () => {
+    if (password.value && checkPasswordStrength(password.value)) {
+      createDisplayMsgError(checkPasswordStrength(password.value));
+    } else {
+      createDisplayMsgError("");
+    }
+  });
+
+  phone.addEventListener("input", maskPhoneNumber);
+
+  cpf.addEventListener("input", formatarcpf);
+
+  rg.addEventListener("input", formatarrg);
+</script>
